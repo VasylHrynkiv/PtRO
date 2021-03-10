@@ -7,9 +7,8 @@ def f(x):
 start = timer()
 
 if __name__ == '__main__':
-    with Pool(processes=4) as pool:         
-        result = pool.apply_async(f, (100,))
-        print(result.get(timeout=1))        
+    with Pool(processes=2) as pool:         
+        print(pool.apply_async(f, (100,)).get(timeout=1))   
 
         print(pool.map(f, range(25)))       
 
